@@ -31,6 +31,11 @@ return require('packer').startup(function(use)
   use {'windwp/nvim-autopairs', config = "require('autopairs-config')", after = "nvim-cmp"}
   use {'folke/which-key.nvim', event = "BufWinEnter", config = "require('whichkey-config')"}
   use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = "require('trouble-config')"
+  }
+  use {
     'nvim-telescope/telescope.nvim',
     requires = {{'nvim-lua/plenary.nvim'}},
     cmd = "Telescope",
@@ -57,10 +62,6 @@ return require('packer').startup(function(use)
     config = "require('blankline-config')",
     event = "BufRead"
   }
-  use {
-    "lukas-reineke/format.nvim",
-    config = 'require("format-config")'
-  }
   use {"akinsho/toggleterm.nvim", config = "require('toggleterm-config')"}
   use {"terrortylor/nvim-comment", config = "require('comment-config')"}
   use {'tami5/lspsaga.nvim', config = "require('lspsaga-config')"}
@@ -68,6 +69,7 @@ return require('packer').startup(function(use)
   use {'jose-elias-alvarez/null-ls.nvim', config = "require('null-ls-config')"}
   use {"folke/zen-mode.nvim", config = 'require("zen-mode-config")'}
   use {"folke/twilight.nvim", config = "require('twilight-config')"}
+  use {"folke/lsp-colors.nvim", config = 'require("lsp-colors-config")'}
   use {'dsznajder/vscode-es7-javascript-react-snippets',
     run = 'yarn install --frozen-lockfile && yarn compile'
   }
