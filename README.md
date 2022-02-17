@@ -9,7 +9,7 @@ Configuration Neovim IDE with Lua config
       <img alt="Last commit" src="https://img.shields.io/github/last-commit/dionannd/nfs"/>
     </a>
     <a href="https://github.com/dionannd/nfs/blob/main/LICENSE">
-        <img src="https://img.shields.io/github/license/dionannd/nfs?style=flat-square&logo=GNU&label=License" alt="License"
+        <img src="https://img.shields.io/github/license/dionannd/nfs?style=flat-square&logo=GNU&label=License" alt="LICENSE"
       />
 </p>
 </div>
