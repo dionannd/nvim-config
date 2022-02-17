@@ -1,7 +1,6 @@
-
 local npairs = require('nvim-autopairs')
 
-npairs.setup({
+npairs.setup {
   check_ts = true,
   ts_config = {
     lua = {'string', 'source'},
@@ -19,9 +18,8 @@ npairs.setup({
     check_comma = true,
     highlight = "PmenuSel",
     highlight_grey = "LineNr",
-    enable_check_bracket_line = false
   }
-})
+}
 
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local cmp = require('cmp')

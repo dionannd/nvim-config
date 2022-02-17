@@ -1,17 +1,29 @@
-vim.lsp.handlers['textDocument/publishDiagnostics'] =
-  vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-        underline = true,
-        virtual_text = { spacing = 5, severity_limit = 'Warning'},
-        update_in_insert = true
-    })
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = {"html", "css", "javascript", "typescript", "json", "lua"},
-  highlight = {enable = true, additional_vim_regex_highlighting = false},
+local configs = require("nvim-treesitter.configs")
+
+configs.setup {
+  ensure_installed = "maintained",
+  sync_install = false,
+  ignore_install = {""},
+  autopairs = {
+    enable = true
+  },
+  highlight = {
+    enable = true,
+    disable = false,
+    additional_vim_regex_highlighting = true
+  },
   autotag = {enable = true},
   rainbow = {
     enable = true,
     extended_mode = false, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
     max_file_lines = nil, -- Do not enable for files with more than n lines, int
   },
-  autopairs = {enable = true}
+  indent = {
+    enable = true,
+    disable = { "yaml" }
+  },
+  context_commentstring = {
+    enable = true,
+    enable_autocmd = false,
+  }
 }

@@ -15,11 +15,11 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.cmd [[packadd packer.nvim]]
 end
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
+-- Autocommand that reloads neovim whenever you save the plugins file
 vim.cmd [[
   augroup packer_user_config
     autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+    autocmd BufWritePost plugins/init.lua source <afile> | PackerSync
   augroup end
 ]]
 
@@ -94,6 +94,10 @@ return packer.startup(function(use)
     config = "require('colorizer-config')",
     event = "BufRead"
   }
+  use {
+    "ahmedkhalf/project.nvim",
+    config = "require('project-config')"
+  }
 
   -- Colorschemes
   use {
@@ -101,12 +105,18 @@ return packer.startup(function(use)
     config = "require('tokyonight-config')"
   }
 
-  -- Cmp plugins
+  -- cmp plugins
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/vim-vsnip'
+  use "hrsh7th/cmp-path" -- path completions
+  use "saadparwaiz1/cmp_luasnip" -- snippet completions
+
+  -- snippets
+  use "L3MON4D3/LuaSnip" --snippet engine
+  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   -- LSP
   use {'neovim/nvim-lspconfig', config = "require('lsp')"} -- enable LSP

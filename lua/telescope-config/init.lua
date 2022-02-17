@@ -1,5 +1,7 @@
+local telescope = require("telescope")
 local actions = require('telescope.actions')
-require('telescope').setup {
+
+telescope.setup {
   defaults = {
     layout_config = {
       width = 0.75,
@@ -21,7 +23,7 @@ require('telescope').setup {
     file_sorter = require'telescope.sorters'.get_fuzzy_file,
     file_ignore_patterns = {},
     generic_sorter = require'telescope.sorters'.get_generic_fuzzy_sorter,
-    path_display = {},
+    path_display = {"smart"},
     winblend = 0,
     border = {},
     borderchars = {'─', '│', '─', '│', '╭', '╮', '╯', '╰'},

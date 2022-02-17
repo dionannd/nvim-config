@@ -1,7 +1,7 @@
 vim.g.completeopt = "menu,menuone,noselect,noinsert"
 
 -- Setup nvim-cmp.
-local cmp = require 'cmp'
+local cmp = require('cmp')
 local lspkind = require('lspkind')
 
 local has_words_before = function()
