@@ -98,6 +98,10 @@ return packer.startup(function(use)
     "ahmedkhalf/project.nvim",
     config = "require('project-config')"
   }
+  use {
+    "lewis6991/impatient.nvim",
+    config = "require('impatient-config')"
+  } -- Speed up loading lua modules
 
   -- Colorschemes
   use {
