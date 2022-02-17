@@ -3,11 +3,7 @@ local formatting = null_ls.builtins.formatting
 
 null_ls.setup({
   sources = {
-    formatting.prettier.with({ 
-      extra_args = { 
-        '--no-semi', '--single-quote', '--jsx-single-quote' 
-      } 
-    }),
+    formatting.prettier,
     formatting.black.with({
       extra_args = { "--fast" }
     }),
@@ -23,17 +19,31 @@ null_ls.setup({
       }
     }),
     formatting.isort,
-    formatting.codespell.with({filetypes = {'markdown'}})
+    formatting.codespell.with({ filetypes = { 'markdown' } })
   },
   on_attach = function(client)
-    if client.resolved_capabilities.document_formatting then
-      vim.cmd([[
-      augroup LspFormatting
+      if client.resolved_capabilities.document_formatting then
+          vim.cmd([[
+        augroup LspFormatting
           autocmd! * <buffer>
           autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
-      augroup END
+        augroup END
       ]])
-    end
+      end
+      if client.supports_method("textDocument/formatting") then
+          vim.cmd([[
+        augroup LspFormatting
+          autocmd! * <buffer>
+          autocmd BufWritePost <buffer> lua formatting(vim.fn.expand("<abuf>"))
+        augroup END
+      ]])
+      end
   end,
 })
 
+require('lspconfig').tsserver.setup({
+  on_attach = function(client)
+      client.resolved_capabilities.document_formatting = false
+      client.resolved_capabilities.document_range_formatting = false
+  end,
+})

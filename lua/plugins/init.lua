@@ -1,16 +1,67 @@
-return require('packer').startup(function(use)
+local fn = vim.fn
+
+-- Automatically install packer
+local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
+if fn.empty(fn.glob(install_path)) > 0 then
+  PACKER_BOOTSTRAP = fn.system {
+    "git",
+    "clone",
+    "--depth",
+    "1",
+    "https://github.com/wbthomason/packer.nvim",
+    install_path,
+  }
+  print "Installing packer close and reopen Neovim..."
+  vim.cmd [[packadd packer.nvim]]
+end
+
+-- Autocommand that reloads neovim whenever you save the plugins.lua file
+vim.cmd [[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+  augroup end
+]]
+
+local packer = require('packer')
+
+-- Have packer use a popup window
+packer.init {
+  display = {
+    open_fn = function ()
+     return require("packer.util").float { border = "rounded" }
+    end,
+  }
+}
+
+-- Install plugins
+return packer.startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
-  -- Customize
+  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
+  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use {
-    'folke/tokyonight.nvim',
-    config = "require('tokyonight-config')"
+    'windwp/nvim-autopairs',
+    config = "require('autopairs-config')",
+    after = "nvim-cmp"
   }
   use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ":TSUpdate",
+    "terrortylor/nvim-comment",
+    config = "require('comment-config')"
+  }
+  use 'kyazdani42/nvim-web-devicons'
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = 'kyazdani42/nvim-web-devicons',
+    cmd = "NvimTreeToggle",
+    config = "require('nvim-tree-config')"
+  }
+  use "moll/vim-bbye"
+  use {
+    'akinsho/bufferline.nvim',
+    requires = 'kyazdani42/nvim-web-devicons',
     event = "BufWinEnter",
-    config = "require('treesitter-config')"
+    config = "require('bufferline-config')"
   }
   use {
     'hoob3rt/lualine.nvim',
@@ -19,59 +70,83 @@ return require('packer').startup(function(use)
     config = "require('lualine-config')"
   }
   use {
-    'akinsho/bufferline.nvim',
-    requires = 'kyazdani42/nvim-web-devicons',
+    "akinsho/toggleterm.nvim",
+    config = "require('toggleterm-config')"
+  }
+  use {
+    'glepnir/dashboard-nvim',
+    event = "BufRead",
+    config = "require('dashboard-config')"
+  }
+  use "antoinemadec/FixCursorHold.nvim"
+  use {
+    'folke/which-key.nvim',
     event = "BufWinEnter",
-    config = "require('bufferline-config')"
-  }
-  use {
-    'kyazdani42/nvim-tree.lua',
-    requires = 'kyazdani42/nvim-web-devicons',
-    cmd = "NvimTreeToggle",
-    config = "require('nvim-tree-config')"
-  }
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = {{'nvim-lua/plenary.nvim'}},
-    cmd = "Telescope",
-    config = "require('telescope-config')"
-  }
-  use {"akinsho/toggleterm.nvim", config = "require('toggleterm-config')"}
-  use {'glepnir/dashboard-nvim', event = "BufRead", config = "require('dashboard-config')"}
-  -- Keybinding
-  use {'folke/which-key.nvim', event = "BufWinEnter", config = "require('whichkey-config')"}
-  -- Formatter
-  use {'windwp/nvim-ts-autotag', event = "InsertEnter", after = "nvim-treesitter"}
-  use {'p00f/nvim-ts-rainbow', after = "nvim-treesitter"}
-  use {'windwp/nvim-autopairs', config = "require('autopairs-config')", after = "nvim-cmp"}
-  use {
-    'lewis6991/gitsigns.nvim',
-    requires = {'nvim-lua/plenary.nvim'},
-    config = function()
-      require('gitsigns').setup {
-        current_line_blame = true
-      }
-    end
+    config = "require('whichkey-config')"
   }
   use {
     "lukas-reineke/indent-blankline.nvim",
     config = "require('blankline-config')",
     event = "BufRead"
   }
-  use {"terrortylor/nvim-comment", config = "require('comment-config')"}
-  use {'norcalli/nvim-colorizer.lua', config = "require('colorizer-config')", event = "BufRead"}
+  use {
+    'norcalli/nvim-colorizer.lua',
+    config = "require('colorizer-config')",
+    event = "BufRead"
+  }
+
+  -- Colorschemes
+  use {
+    'folke/tokyonight.nvim',
+    config = "require('tokyonight-config')"
+  }
+
+  -- Cmp plugins
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-vsnip'
+  use 'hrsh7th/vim-vsnip'
+
   -- LSP
-  use {'neovim/nvim-lspconfig', config = "require('lsp')"}
-  use {'hrsh7th/cmp-nvim-lsp'}
-  use {'hrsh7th/cmp-buffer'}
-  use {'hrsh7th/nvim-cmp'}
-  use {'hrsh7th/cmp-vsnip'}
-  use {'hrsh7th/vim-vsnip'}
+  use {'neovim/nvim-lspconfig', config = "require('lsp')"} -- enable LSP
+  use {'williamboman/nvim-lsp-installer'} -- simple to use language server installer
+  use {'jose-elias-alvarez/null-ls.nvim', config = "require('null-ls-config')"} -- for formatting and linters
   use {'onsails/lspkind-nvim'}
   use {'tami5/lspsaga.nvim', config = "require('lspsaga-config')"}
-  use {'williamboman/nvim-lsp-installer'}
-  use {'jose-elias-alvarez/null-ls.nvim', config = "require('null-ls-config')"}
-  -- Mode
+
+  -- Telescope
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = {{'nvim-lua/plenary.nvim'}},
+    cmd = "Telescope",
+    config = "require('telescope-config')"
+  }
+
+  -- Treesitter
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ":TSUpdate",
+    event = "BufWinEnter",
+    config = "require('treesitter-config')"
+  }
+  use {'windwp/nvim-ts-autotag', event = "InsertEnter", after = "nvim-treesitter"}
+  use {'p00f/nvim-ts-rainbow', after = "nvim-treesitter"}
+  
+  -- Git
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {'nvim-lua/plenary.nvim'},
+    config = "require('gitsign-config')"
+  }
+  
+  -- Zen Mode and Twilight
   use {"folke/zen-mode.nvim", config = 'require("zen-mode-config")'}
   use {"folke/twilight.nvim", config = "require('twilight-config')"}
+
+  -- Automatically set up your configuration after cloning packer.nvim
+  -- Put this at the end after all plugins
+  if PACKER_BOOTSTRAP then
+    require("packer").sync()
+  end
 end)
