@@ -1,7 +1,11 @@
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
-  use {'rose-pine/neovim', config = "vim.cmd('colorscheme rose-pine')"}
+  -- Customize
+  use {
+    'folke/tokyonight.nvim',
+    config = "require('tokyonight-config')"
+  }
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ":TSUpdate",
@@ -26,21 +30,37 @@ return require('packer').startup(function(use)
     cmd = "NvimTreeToggle",
     config = "require('nvim-tree-config')"
   }
-  use {'windwp/nvim-ts-autotag', event = "InsertEnter", after = "nvim-treesitter"}
-  use {'p00f/nvim-ts-rainbow', after = "nvim-treesitter"}
-  use {'windwp/nvim-autopairs', config = "require('autopairs-config')", after = "nvim-cmp"}
-  use {'folke/which-key.nvim', event = "BufWinEnter", config = "require('whichkey-config')"}
-  use {
-    "folke/trouble.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
-    config = "require('trouble-config')"
-  }
   use {
     'nvim-telescope/telescope.nvim',
     requires = {{'nvim-lua/plenary.nvim'}},
     cmd = "Telescope",
     config = "require('telescope-config')"
   }
+  use {"akinsho/toggleterm.nvim", config = "require('toggleterm-config')"}
+  use {'glepnir/dashboard-nvim', event = "BufRead", config = "require('dashboard-config')"}
+  -- Keybinding
+  use {'folke/which-key.nvim', event = "BufWinEnter", config = "require('whichkey-config')"}
+  -- Formatter
+  use {'windwp/nvim-ts-autotag', event = "InsertEnter", after = "nvim-treesitter"}
+  use {'p00f/nvim-ts-rainbow', after = "nvim-treesitter"}
+  use {'windwp/nvim-autopairs', config = "require('autopairs-config')", after = "nvim-cmp"}
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {'nvim-lua/plenary.nvim'},
+    config = function()
+      require('gitsigns').setup {
+        current_line_blame = true
+      }
+    end
+  }
+  use {
+    "lukas-reineke/indent-blankline.nvim",
+    config = "require('blankline-config')",
+    event = "BufRead"
+  }
+  use {"terrortylor/nvim-comment", config = "require('comment-config')"}
+  use {'norcalli/nvim-colorizer.lua', config = "require('colorizer-config')", event = "BufRead"}
+  -- LSP
   use {'neovim/nvim-lspconfig', config = "require('lsp')"}
   use {'hrsh7th/cmp-nvim-lsp'}
   use {'hrsh7th/cmp-buffer'}
@@ -48,29 +68,10 @@ return require('packer').startup(function(use)
   use {'hrsh7th/cmp-vsnip'}
   use {'hrsh7th/vim-vsnip'}
   use {'onsails/lspkind-nvim'}
-  use {'norcalli/nvim-colorizer.lua', config = "require('colorizer-config')", event = "BufRead"}
-  use {
-    'lewis6991/gitsigns.nvim',
-    requires = {'nvim-lua/plenary.nvim'},
-    config = function()
-      require('gitsigns').setup {current_line_blame = true}
-    end
-  }
-  use {'glepnir/dashboard-nvim', event = "BufRead", config = "require('dashboard-config')"}
-  use {
-    "lukas-reineke/indent-blankline.nvim",
-    config = "require('blankline-config')",
-    event = "BufRead"
-  }
-  use {"akinsho/toggleterm.nvim", config = "require('toggleterm-config')"}
-  use {"terrortylor/nvim-comment", config = "require('comment-config')"}
   use {'tami5/lspsaga.nvim', config = "require('lspsaga-config')"}
   use {'williamboman/nvim-lsp-installer'}
   use {'jose-elias-alvarez/null-ls.nvim', config = "require('null-ls-config')"}
+  -- Mode
   use {"folke/zen-mode.nvim", config = 'require("zen-mode-config")'}
   use {"folke/twilight.nvim", config = "require('twilight-config')"}
-  use {"folke/lsp-colors.nvim", config = 'require("lsp-colors-config")'}
-  use {'dsznajder/vscode-es7-javascript-react-snippets',
-    run = 'yarn install --frozen-lockfile && yarn compile'
-  }
 end)
