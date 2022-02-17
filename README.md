@@ -57,7 +57,9 @@ Open `nvim` and run
 - inside nvim `<space> + p + u`
 
 <br />
+
 ## Thanks
+
 <div align="left" id="madewithlua">
 	
 [![Lua](https://img.shields.io/badge/Made%20with%20Lua-blue.svg?style=for-the-badge&logo=lua)](#madewithlua)
