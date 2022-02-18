@@ -46,7 +46,8 @@ or you can install manual
 
 ### Manual Installer
 
-Make sure to remove or move your current `nvim` directory
+Make sure to remove or move your current `nvim` directory, 
+if done run in termninal :
 
 ```
 git clone https://github.com/dionannd/nfs.git ~/.config/nvim
