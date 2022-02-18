@@ -14,6 +14,15 @@ Configuration Neovim IDE with Lua config
 </p>
 </div>
 
+## Features
+- Minimalias and clean
+- Syntax highlighting
+- Language support and Code Autocompletion
+- Autoformatting
+- Easy use and configuration
+- Terminal integration
+- File Navigation with NerdTree
+
 ## Recruitments
 - [Neovim](https://neovim.io/) >= v0.6.1 or [Nightly](https://github.com/neovim/neovim/releases/tag/nightly).
 - [packer.nvim](https://github.com/wbthomason/packer.nvim#quickstart) (Plugin Manager)
@@ -21,19 +30,27 @@ Configuration Neovim IDE with Lua config
 - [Node](https://nodejs.org/en/) or Npm
 - Python
 - Ruby (optional)
+- [Lazygit](https://github.com/jesseduffield/lazygit) (optional for git integration)
+- [RipGrep](https://github.com/BurntSushi/ripgrep) (optional for telescope ripgrep)
 - [Nerd font](https://www.nerdfonts.com/) (icon ligatures support)
 
 ## Try this config
+
+### Installer
+
+you can install with installer, run:
+```
+./install.sh
+```
+or you can install manual
+
+### Manual Installer
 
 Make sure to remove or move your current `nvim` directory
 
 ```
 git clone https://github.com/dionannd/nfs.git ~/.config/nvim
-```
-
-Open `nvim` (if a have error, ignore please) and install plugin with
-```
-:PackerSync
+nvim +PackerSync
 ```
 
 ## Get healthy
