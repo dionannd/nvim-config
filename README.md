@@ -61,20 +61,35 @@ Open `nvim` and run
 :checkhealth
 ```
 
+You'll probably notice you don't have support for copy/paste also that python and node haven't been setup <br />
+So let's fix that <br />
+
+Next we need to install python support (node is optional)
+- Neovim python support
+  
+  ```
+  pip install pynvim
+  ```
+- Neovim node support
+  
+  ```
+  npm i -g neovim
+  ```
+
 ## Install Language support
 
 - Enter `:LspInstall` followed by `<TAB>` to see your options for LSP
 
 - Enter `:TSInstall` followed by `<TAB>` to see your options for syntax highlighting
 
-**NOTE** I recommend installing `lua` for autocomplete lua file
+**NOTE**
+I recommend installing `lua` for autocomplete lua file, and `prettier` install global with `npm i -g prettier`
 
 ## Update the plugins
 
 - inside nvim `:PackerUpdate` or
 - inside nvim `<space> + p + u`
 
-<br />
 
 ## Thanks
 
