@@ -1,4 +1,3 @@
-vim.opt.termguicolors = true
 local bufferline = require("bufferline")
 
 local function is_ft(b, ft)

@@ -34,3 +34,6 @@ vim.o.autoindent = true
 vim.bo.autoindent = true
 vim.o.expandtab = true
 vim.bo.expandtab = true
+
+-- cmp options
+vim.g.completeopt = "menu,menuone,noselect,noinsert"
