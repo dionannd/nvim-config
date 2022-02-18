@@ -23,7 +23,7 @@ Configuration Neovim IDE with Lua config
 - Terminal integration
 - File Navigation with NerdTree
 
-## Recruitments
+## Requirements
 - [Neovim](https://neovim.io/) >= v0.6.1 or [Nightly](https://github.com/neovim/neovim/releases/tag/nightly).
 - [packer.nvim](https://github.com/wbthomason/packer.nvim#quickstart) (Plugin Manager)
 - Git
