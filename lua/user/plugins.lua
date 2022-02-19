@@ -53,14 +53,15 @@ return packer.startup(function(use)
   use "kyazdani42/nvim-tree.lua"
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
-  use 'hoob3rt/lualine.nvim'
+  use "hoob3rt/lualine.nvim"
   use "akinsho/toggleterm.nvim"
   use "ahmedkhalf/project.nvim"
   use "lewis6991/impatient.nvim"
+  use "lukas-reineke/indent-blankline.nvim"
 
   -- Colorschemes
-  use 'folke/tokyonight.nvim'
-  use 'rose-pine/neovim'
+  use "folke/tokyonight.nvim"
+  use "rose-pine/neovim"
   use "projekt0n/github-nvim-theme"
   use({
     "catppuccin/nvim",
@@ -68,11 +69,11 @@ return packer.startup(function(use)
   })
 
   -- cmp plugins
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'saadparwaiz1/cmp_luasnip'
+  use "hrsh7th/nvim-cmp"
+  use "hrsh7th/cmp-buffer"
+  use "hrsh7th/cmp-path"
+  use "hrsh7th/cmp-cmdline"
+  use "saadparwaiz1/cmp_luasnip"
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-nvim-lua"
 
@@ -84,10 +85,10 @@ return packer.startup(function(use)
   use "neovim/nvim-lspconfig"
   use "williamboman/nvim-lsp-installer"
   use "tamago324/nlsp-settings.nvim"
-  use 'jose-elias-alvarez/null-ls.nvim' -- for formatting and linters
+  use "jose-elias-alvarez/null-ls.nvim" -- for formatting and linters
 
   -- Telescope
-  use 'nvim-telescope/telescope.nvim'
+  use "nvim-telescope/telescope.nvim"
   use "nvim-telescope/telescope-media-files.nvim"
   use "nvim-telescope/telescope-ui-select.nvim"
   use "nvim-telescope/telescope-file-browser.nvim"
@@ -95,17 +96,17 @@ return packer.startup(function(use)
 
   -- Treesitter
   use {
-    'nvim-treesitter/nvim-treesitter',
+    "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
   }
-  use 'windwp/nvim-ts-autotag'
-  use 'p00f/nvim-ts-rainbow'
+  use "windwp/nvim-ts-autotag"
+  use "p00f/nvim-ts-rainbow"
   use "JoosepAlviste/nvim-ts-context-commentstring"
   use "romgrk/nvim-treesitter-context"
   use "nvim-treesitter/playground"
 
   -- Git
-  use 'lewis6991/gitsigns.nvim'
+  use "lewis6991/gitsigns.nvim"
   use "ruifm/gitlinker.nvim"
   use "mattn/webapi-vim"
   use "https://github.com/rhysd/conflict-marker.vim"
