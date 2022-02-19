@@ -42,7 +42,7 @@ packer.init {
 return packer.startup(function(use)
   -- Packer can manage itself
   use "wbthomason/packer.nvim"
-  use 'kyazdani42/nvim-web-devicons'
+  use "kyazdani42/nvim-web-devicons"
   use "nvim-lua/popup.nvim"
   use "nvim-lua/plenary.nvim"
   use "rcarriga/nvim-notify"
@@ -50,7 +50,10 @@ return packer.startup(function(use)
   use "numToStr/Comment.nvim"
   use "folke/todo-comments.nvim"
   use "antoinemadec/FixCursorHold.nvim"
-  use 'kyazdani42/nvim-tree.lua'
+  use "kyazdani42/nvim-tree.lua"
+  use "akinsho/bufferline.nvim"
+  use "moll/vim-bbye"
+
 
   -- Colorschemes
   use 'folke/tokyonight.nvim'
