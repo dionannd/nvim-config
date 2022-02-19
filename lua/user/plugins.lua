@@ -56,6 +56,7 @@ return packer.startup(function(use)
   use 'hoob3rt/lualine.nvim'
   use "akinsho/toggleterm.nvim"
   use "ahmedkhalf/project.nvim"
+  use "lewis6991/impatient.nvim"
 
   -- Colorschemes
   use 'folke/tokyonight.nvim'
