@@ -95,6 +95,12 @@ return packer.startup(function(use)
   use "romgrk/nvim-treesitter-context"
   use "nvim-treesitter/playground"
 
+  -- Git
+  use 'lewis6991/gitsigns.nvim'
+  use "ruifm/gitlinker.nvim"
+  use "mattn/webapi-vim"
+  use "https://github.com/rhysd/conflict-marker.vim"
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
