@@ -1,3 +1,7 @@
-require('plugins')
-require('keybindings')
-require('options')
+require "user.options"
+require "user.keybindings"
+require "user.plugins"
+require "user.colorscheme"
+require "user.icons"
+require "user.notify"
+require "user.cmp"

@@ -1,16 +1,14 @@
--- Setup nvim-cmp.
-local cmp = require('cmp')
+local cmp_status_ok, cmp = pcall(require, "cmp")
+if not cmp_status_ok then
+  return
+end
 
-local luasnip = require("luasnip")
-local lspkind = require('lspkind')
+local snip_status_ok, luasnip = pcall(require, "luasnip")
+if not snip_status_ok then
+  return
+end
 
 require("luasnip/loaders/from_vscode").lazy_load()
-
--- Do not jump to snippet if i'm outside of the current snippet.
-luasnip.config.setup({
-	region_check_events = "CursorMoved",
-	delete_check_events = "TextChanged",
-})
 
 local check_backspace = function()
   local col = vim.fn.col "." - 1
@@ -45,29 +43,13 @@ local kind_icons = {
   Operator = "",
   TypeParameter = "",
 }
+-- find more here: https://www.nerdfonts.com/cheat-sheet
 
-cmp.setup({
+cmp.setup {
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body) -- For `luasnip` users.
     end,
-  },
-  formatting = {
-    format = lspkind.cmp_format({
-      with_text = false,
-      before = function (entry, vim_item)
-        -- Kind icons
-        vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-        vim_item.menu = ({
-            nvim_lsp = "[LSP]",
-            vsnip = "[Snippet]",
-            luasnip = "[Snippet]",
-            buffer = "[Buffer]",
-            path = "[Path]",
-        })[entry.source.name]
-        return vim_item
-      end
-    }),
   },
   mapping = {
     ["<C-k>"] = cmp.mapping.select_prev_item(),
@@ -112,17 +94,34 @@ cmp.setup({
       "s",
     }),
   },
-  sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-    { name = 'path' },
-    { name = 'luasnip' },
-    { name = 'vsnip' },
-    { name = 'buffer', keyword_length = 5, max_item_count = 5 },
-  }),
+  formatting = {
+    fields = { "kind", "abbr", "menu" },
+    format = function(entry, vim_item)
+      -- Kind icons
+      vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+      -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+      vim_item.menu = ({
+        luasnip = "[Snippet]",
+        buffer = "[Buffer]",
+        path = "[Path]",
+      })[entry.source.name]
+      return vim_item
+    end,
+  },
+  sources = {
+    { name = "luasnip" },
+    { name = "buffer" },
+    { name = "path" },
+  },
+  confirm_opts = {
+    behavior = cmp.ConfirmBehavior.Replace,
+    select = false,
+  },
   documentation = {
     border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
   },
   experimental = {
-    ghost_text = false
+    ghost_text = false,
+    native_menu = false,
   },
-})
+}
