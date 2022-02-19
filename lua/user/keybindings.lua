@@ -37,8 +37,7 @@ keymap("i", "jk", "<ESC>", opts)
 keymap("i", "kj", "<ESC>", opts)
 keymap("i", "jj", "<ESC>", opts)
 
--- Visual --
--- Stay in indent mode
+-- Move text rigth and left in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 

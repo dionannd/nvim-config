@@ -53,6 +53,7 @@ return packer.startup(function(use)
   use "kyazdani42/nvim-tree.lua"
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
+  use 'hoob3rt/lualine.nvim'
 
 
   -- Colorschemes
@@ -73,14 +74,15 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-nvim-lua"
 
+  -- snippets
+  use "L3MON4D3/LuaSnip"
+  use "rafamadriz/friendly-snippets"
+
   -- LSP
   use "neovim/nvim-lspconfig"
   use "williamboman/nvim-lsp-installer"
   use "tamago324/nlsp-settings.nvim"
-
-  -- snippets
-  use "L3MON4D3/LuaSnip"
-  use "rafamadriz/friendly-snippets"
+  use 'jose-elias-alvarez/null-ls.nvim' -- for formatting and linters
 
   -- Telescope
   use 'nvim-telescope/telescope.nvim'
@@ -107,7 +109,6 @@ return packer.startup(function(use)
   use "https://github.com/rhysd/conflict-marker.vim"
 
   -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
