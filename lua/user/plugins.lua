@@ -48,6 +48,7 @@ return packer.startup(function(use)
   use "windwp/nvim-autopairs"
   use "numToStr/Comment.nvim"
   use "folke/todo-comments.nvim"
+  use "antoinemadec/FixCursorHold.nvim"
 
   -- Colorschemes
   use 'folke/tokyonight.nvim'
