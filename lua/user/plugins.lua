@@ -43,8 +43,11 @@ return packer.startup(function(use)
   -- Packer can manage itself
   use "wbthomason/packer.nvim"
   use "nvim-lua/popup.nvim"
-  use "nvim-lua/plenary.nvim" 
+  use "nvim-lua/plenary.nvim"
   use "rcarriga/nvim-notify"
+  use "windwp/nvim-autopairs"
+  use "numToStr/Comment.nvim"
+  use "folke/todo-comments.nvim"
 
   -- Colorschemes
   use 'folke/tokyonight.nvim'
@@ -58,13 +61,38 @@ return packer.startup(function(use)
   -- cmp plugins
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path' 
+  use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
   use 'saadparwaiz1/cmp_luasnip'
+  use "hrsh7th/cmp-nvim-lsp"
+  use "hrsh7th/cmp-nvim-lua"
+
+  -- LSP
+  use "neovim/nvim-lspconfig"
+  use "williamboman/nvim-lsp-installer"
+  use "tamago324/nlsp-settings.nvim"
 
   -- snippets
   use "L3MON4D3/LuaSnip"
   use "rafamadriz/friendly-snippets"
+
+  -- Telescope
+  use 'nvim-telescope/telescope.nvim'
+  use "nvim-telescope/telescope-media-files.nvim"
+  use "nvim-telescope/telescope-ui-select.nvim"
+  use "nvim-telescope/telescope-file-browser.nvim"
+  use "tom-anders/telescope-vim-bookmarks.nvim"
+
+  -- Treesitter
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ":TSUpdate",
+  }
+  use 'windwp/nvim-ts-autotag'
+  use 'p00f/nvim-ts-rainbow'
+  use "JoosepAlviste/nvim-ts-context-commentstring"
+  use "romgrk/nvim-treesitter-context"
+  use "nvim-treesitter/playground"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
