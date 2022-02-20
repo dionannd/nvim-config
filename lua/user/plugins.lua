@@ -61,6 +61,7 @@ return packer.startup(function(use)
   use "glepnir/dashboard-nvim"
   use "folke/which-key.nvim"
   use "norcalli/nvim-colorizer.lua"
+  use "ThePrimeagen/harpoon"
   use "windwp/nvim-spectre"
   use "unblevable/quick-scope"
   use "karb94/neoscroll.nvim"
