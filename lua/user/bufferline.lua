@@ -7,6 +7,9 @@ bufferline.setup {
   options = {
     numbers = "none",
     close_command = "Bdelete! %d",
+    right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
+    left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
+    middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
     -- NOTE: this plugin is designed with this icon in mind,
     -- and so changing this is NOT recommended, this is intended
     -- as an escape hatch for people who cannot bear it for whatever reason
@@ -38,12 +41,6 @@ bufferline.setup {
     -- custom_filter = custom_filter,
     offsets = {
       {
-        filetype = "undotree",
-        text = "Undotree",
-        highlight = "PanelHeading",
-        padding = 1,
-      },
-      {
         filetype = "NvimTree",
         text = "Explorer",
         highlight = "PanelHeading",
@@ -60,7 +57,7 @@ bufferline.setup {
     separator_style = "thin", -- | "thick" | "thin" | { 'any', 'any' },
     enforce_regular_tabs = true,
     always_show_bufferline = true,
-    sort_by = "id",
+    -- sort_by = "id",
   },
   highlight = {
     fill = {
@@ -146,6 +143,7 @@ bufferline.setup {
       guifg = { attribute = "bg", highlight = "Normal" },
       guibg = { attribute = "bg", highlight = "Normal" },
     },
+
     indicator_selected = {
       guifg = { attribute = "fg", highlight = "LspDiagnosticsDefaultHint" },
       guibg = { attribute = "bg", highlight = "Normal" },

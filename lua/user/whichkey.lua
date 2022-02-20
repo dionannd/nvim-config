@@ -13,8 +13,8 @@ local setup = {
     },
     presets = {
       operators = false,
-      motions = false,
-      text_objects = false,
+      motions = true,
+      text_objects = true,
       windows = true,
       nav = true,
       z = true,
@@ -41,11 +41,11 @@ local setup = {
     height = { min = 4, max = 25 }, -- min and max height of the columns
     width = { min = 20, max = 50 }, -- min and max width of the columns
     spacing = 3, -- spacing between columns
-    align = "center", -- align columns left, center or right
+    align = "left", -- align columns left, center or right
   },
   ignore_missing = true, -- enable this to hide mappings for which you didn't specify a label
   hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
-  show_help = false, -- show help message on the command line when the popup is visible
+  show_help = true, -- show help message on the command line when the popup is visible
   triggers = "auto", -- automatically setup triggers
   -- triggers = {"<leader>"} -- or specify a list manually
   triggers_blacklist = {
@@ -67,7 +67,7 @@ local opts = {
 }
 
 local mappings = {
-  ["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
+  ["a"] = { '<cmd>Dashboard<CR>', "Dashboard" },
   ["b"] = {
     "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<CR>",
     "Buffers",
@@ -81,8 +81,8 @@ local mappings = {
     "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>",
     "Find files",
   },
-  ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-  ["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
+  ["F"] = { "<cmd>Telescope live_grep theme=ivy<CR>", "Find Text" },
+  ["P"] = { "<cmd>lua require('telescope').extensions.projects()<CR>", "Projects" },
 
   g = {
     name = "Git",
@@ -178,18 +178,5 @@ local mappings = {
   },
 }
 
-local vopts = {
-  mode = "v", -- VISUAL mode
-  prefix = "<leader>",
-  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-  silent = true, -- use `silent` when creating keymaps
-  noremap = true, -- use `noremap` when creating keymaps
-  nowait = true, -- use `nowait` when creating keymaps
-}
-local vmappings = {
-  ["/"] = { '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', "Comment" },
-}
-
 which_key.setup(setup)
 which_key.register(mappings, opts)
-which_key.register(vmappings, vopts)

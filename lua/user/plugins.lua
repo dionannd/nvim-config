@@ -42,9 +42,9 @@ packer.init {
 return packer.startup(function(use)
   -- Packer can manage itself
   use "wbthomason/packer.nvim"
-  use "kyazdani42/nvim-web-devicons"
   use "nvim-lua/popup.nvim"
   use "nvim-lua/plenary.nvim"
+  use "kyazdani42/nvim-web-devicons"
   use "rcarriga/nvim-notify"
   use "windwp/nvim-autopairs"
   use "numToStr/Comment.nvim"
@@ -60,6 +60,7 @@ return packer.startup(function(use)
   use "lukas-reineke/indent-blankline.nvim"
   use "glepnir/dashboard-nvim"
   use "folke/which-key.nvim"
+  use "norcalli/nvim-colorizer.lua"
 
   -- Colorschemes
   use "folke/tokyonight.nvim"
