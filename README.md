@@ -29,7 +29,7 @@
 - [Neovim](https://neovim.io/) >= v0.6.1 or [Nightly](https://github.com/neovim/neovim/releases/tag/nightly).
 - Git (cloning repo from github)
 - [Lazygit](https://github.com/jesseduffield/lazygit) (optional for git integration)
-- [RipGrep](https://github.com/BurntSushi/ripgrep) (optional for telescope ripgrep)
+<!-- - [RipGrep](https://github.com/BurntSushi/ripgrep) (optional for telescope ripgrep) -->
 - [Nerd font](https://www.nerdfonts.com/) (icon ligatures support)
 
 ### ⚒️  Language recommend
