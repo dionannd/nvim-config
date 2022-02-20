@@ -58,7 +58,7 @@ return packer.startup(function(use)
   use "ahmedkhalf/project.nvim"
   use "lewis6991/impatient.nvim"
   use "lukas-reineke/indent-blankline.nvim"
-  use "glepnir/dashboard-nvim"
+  use "goolord/alpha-nvim"
   use "folke/which-key.nvim"
   use "norcalli/nvim-colorizer.lua"
   use "ThePrimeagen/harpoon"
