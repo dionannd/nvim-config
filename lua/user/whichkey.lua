@@ -13,8 +13,8 @@ local setup = {
     },
     presets = {
       operators = false,
-      motions = true,
-      text_objects = true,
+      motions = false,
+      text_objects = false,
       windows = true,
       nav = true,
       z = true,
@@ -41,12 +41,12 @@ local setup = {
     height = { min = 4, max = 25 }, -- min and max height of the columns
     width = { min = 20, max = 50 }, -- min and max width of the columns
     spacing = 3, -- spacing between columns
-    align = "left", -- align columns left, center or right
+    align = "center", -- align columns left, center or right
   },
   ignore_missing = true, -- enable this to hide mappings for which you didn't specify a label
   hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
-  show_help = true, -- show help message on the command line when the popup is visible
-  triggers = "auto", -- automatically setup triggers
+  show_help = false, -- show help message on the command line when the popup is visible
+  -- triggers = "auto", -- automatically setup triggers
   -- triggers = {"<leader>"} -- or specify a list manually
   triggers_blacklist = {
     -- list of mode / prefixes that should never be hooked by WhichKey
@@ -66,6 +66,30 @@ local opts = {
   nowait = true,
 }
 
+local m_opts = {
+  mode = "n", -- NORMAL mode
+  prefix = "m",
+  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+  silent = true, -- use `silent` when creating keymaps
+  noremap = true, -- use `noremap` when creating keymaps
+  nowait = true, -- use `nowait` when creating keymaps
+}
+
+local m_mappings = {
+  a = { "<cmd>BookmarkAnnotate<cr>", "Annotate" },
+  c = { "<cmd>BookmarkClear<cr>", "Clear" },
+  m = { "<cmd>BookmarkToggle<cr>", "Toggle" },
+  h = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Harpoon" },
+  j = { "<cmd>BookmarkNext<cr>", "Next" },
+  k = { "<cmd>BookmarkPrev<cr>", "Prev" },
+  s = {
+    "<cmd>lua require('telescope').extensions.vim_bookmarks.all({ hide_filename=false, prompt_title=\"bookmarks\", shorten_path=false })<cr>",
+    "Show",
+  },
+  x = { "<cmd>BookmarkClearAll<cr>", "Clear All" },
+  u = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', "Harpoon UI" },
+}
+
 local mappings = {
   ["a"] = { '<cmd>Dashboard<CR>', "Dashboard" },
   ["b"] = {
@@ -81,7 +105,7 @@ local mappings = {
     "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>",
     "Find files",
   },
-  ["F"] = { "<cmd>Telescope live_grep theme=ivy<CR>", "Find Text" },
+  -- ["F"] = { "<cmd>Telescope live_grep theme=ivy<CR>", "Find Text" },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects()<CR>", "Projects" },
 
   g = {
@@ -89,7 +113,7 @@ local mappings = {
     g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
     j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
     k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
-    l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
+    l = { "<cmd>GitBlameToggle<cr>", "Blame" },
     p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
     r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
     R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
@@ -110,10 +134,7 @@ local mappings = {
  l = {
     name = "LSP",
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-    d = {
-      "<cmd>Telescope lsp_document_diagnostics<cr>",
-      "Document Diagnostics",
-    },
+    d = { "<cmd>TroubleToggle<cr>", "Diagnostics" },
     w = {
       "<cmd>Telescope lsp_workspace_diagnostics<cr>",
       "Workspace Diagnostics",
@@ -130,8 +151,9 @@ local mappings = {
       "Prev Diagnostic",
     },
     l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-    e = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
+    q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
     r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+    R = { "<cmd>TroubleToggle lsp_references<cr>", "References" },
     s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
     S = {
       "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
@@ -149,15 +171,14 @@ local mappings = {
   },
 
   s = {
-    name = "Search",
-    b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-    c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-    h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-    M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-    r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-    R = { "<cmd>Telescope registers<cr>", "Registers" },
-    k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-    C = { "<cmd>Telescope commands<cr>", "Commands" },
+    name = "SnipRun",
+    c = { "<cmd>SnipClose<cr>", "Close" },
+    f = { "<cmd>%SnipRun<cr>", "Run File" },
+    i = { "<cmd>SnipInfo<cr>", "Info" },
+    m = { "<cmd>SnipReplMemoryClean<cr>", "Mem Clean" },
+    r = { "<cmd>SnipReset<cr>", "Reset" },
+    t = { "<cmd>SnipRunToggle<cr>", "Toggle" },
+    x = { "<cmd>SnipTerminate<cr>", "Terminate" },
   },
 
  t = {
@@ -171,6 +192,12 @@ local mappings = {
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
   },
 
+  T = {
+    name = "Treesitter",
+    h = { "<cmd>TSHighlightCapturesUnderCursor<cr>", "Highlight" },
+    p = { "<cmd>TSPlaygroundToggle<cr>", "Playground" },
+  },
+
   z = {
     name = "Focus",
     z = {":ZenMode<cr>", "Toggle Zen Mode"},
@@ -178,5 +205,20 @@ local mappings = {
   },
 }
 
+local vopts = {
+  mode = "v", -- VISUAL mode
+  prefix = "<leader>",
+  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+  silent = true, -- use `silent` when creating keymaps
+  noremap = true, -- use `noremap` when creating keymaps
+  nowait = true, -- use `nowait` when creating keymaps
+}
+local vmappings = {
+  ["/"] = { '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', "Comment" },
+  s = { "<esc><cmd>'<,'>SnipRun<cr>", "Run range" },
+}
+
 which_key.setup(setup)
 which_key.register(mappings, opts)
+which_key.register(vmappings, vopts)
+which_key.register(m_mappings, m_opts)

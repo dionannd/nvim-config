@@ -61,11 +61,20 @@ return packer.startup(function(use)
   use "glepnir/dashboard-nvim"
   use "folke/which-key.nvim"
   use "norcalli/nvim-colorizer.lua"
+  use "windwp/nvim-spectre"
   use "unblevable/quick-scope"
-  use "RRethy/vim-illuminate"
   use "karb94/neoscroll.nvim"
   use "nyngwang/NeoZoom.lua"
   use "SmiteshP/nvim-gps"
+  use "MattesGroeger/vim-bookmarks"
+  use "tversteeg/registers.nvim"
+  use { "michaelb/sniprun", run = "bash ./install.sh" }
+  use {
+
+    "iamcco/markdown-preview.nvim",
+    run = "cd app && npm install",
+    ft = "markdown",
+  }
 
   -- Colorschemes
   use "folke/tokyonight.nvim"
@@ -109,6 +118,16 @@ return packer.startup(function(use)
   use "williamboman/nvim-lsp-installer"
   use "tamago324/nlsp-settings.nvim"
   use "jose-elias-alvarez/null-ls.nvim" -- for formatting and linters
+  use "filipdutescu/renamer.nvim"
+  use "simrat39/symbols-outline.nvim"
+  use "ray-x/lsp_signature.nvim"
+  use "b0o/SchemaStore.nvim"
+  use {
+    "folke/trouble.nvim",
+    cmd = "TroubleToggle",
+  }
+  use "github/copilot.vim"
+  use "RRethy/vim-illuminate"
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
@@ -130,6 +149,7 @@ return packer.startup(function(use)
 
   -- Git
   use "lewis6991/gitsigns.nvim"
+  use "f-person/git-blame.nvim"
   use "ruifm/gitlinker.nvim"
   use "mattn/webapi-vim"
   use "https://github.com/rhysd/conflict-marker.vim"
