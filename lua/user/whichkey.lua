@@ -5,20 +5,20 @@ end
 
 local setup = {
   plugins = {
-    marks = true,
-    registers = true,
+    marks = false,
+    registers = false,
     spelling = {
-      enabled = true,
+      enabled = false,
       suggestions = 20
     },
     presets = {
       operators = false,
       motions = false,
       text_objects = false,
-      windows = true,
-      nav = true,
-      z = true,
-      g = true,
+      windows = false,
+      nav = false,
+      z = false,
+      g = false,
     },
   },
   icons = {
@@ -91,7 +91,7 @@ local m_mappings = {
 }
 
 local mappings = {
-  ["a"] = { '<cmd>Dashboard<CR>', "Dashboard" },
+  ["a"] = { '<cmd>Alpha<CR>', "Dashboard" },
   ["b"] = {
     "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<CR>",
     "Buffers",
