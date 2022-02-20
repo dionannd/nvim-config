@@ -35,11 +35,11 @@
 ### ⚒️  Language recommend
 - Node & npm
 - Python
-- Ruby (optional)
 - Go >= 1.17
-- Composer
-- Julia
-- Powershell
+- Ruby (optional)
+- Composer (optional)
+- Julia (optional)
+- Powershell (optional)
 
 ### 🚀 Try this config
 
