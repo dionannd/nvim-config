@@ -1,17 +1,31 @@
-## NFS (Neovim From Scratch)
-⚡ Configuration Neovim IDE with Lua config ⚡
+<h2 align="center"> NFS (Neovim From Scratch) </h2>
 
-<div align="left"><p>
-    <a href="https://github.com/dionannd/nfs/releases/latest">
-      <img alt="Latest release" src="https://img.shields.io/github/v/release/dionannd/nfs" />
-    </a>
-    <a href="https://github.com/dionannd/nfs/pulse">
-      <img alt="Last commit" src="https://img.shields.io/github/last-commit/dionannd/nfs"/>
-    </a>
+<h6 align="center"> ⚡ Configuration Neovim IDE with Lua config ⚡ </h6>
+
+<div align="center" id="madewithlua">
+	
+[![Lua](https://img.shields.io/badge/Made%20with%20Lua-blue.svg?style=for-the-badge&logo=lua)](#madewithlua)
+	
+</div>
+  
+<div align="center">
+
+  <a href="https://github.com/dionannd/nfs/releases/latest"
+    ><img alt="Latest Release" src="https://img.shields.io/github/v/release/dionannd/nfs?style=flat-square&label=Release"
+    />
+  </a>
+[![Neovim Minimum Version](https://img.shields.io/badge/Neovim-0.6+-blueviolet.svg?style=flat-square&logo=Neovim&logoColor=white)](https://github.com/neovim/neovim)
+  <a href="https://github.com/dionannd/nfs"
+        ><img
+            src="https://img.shields.io/github/repo-size/dionannd/nfs?style=flat-square&label=Repo"
+            alt="GitHub repository size"
+    /></a>
     <a href="https://github.com/dionannd/nfs/blob/main/LICENSE">
-        <img src="https://img.shields.io/github/license/dionannd/nfs?style=flat-square&logo=GNU&label=license" alt="LICENSE"
+        <img src="https://img.shields.io/github/license/dionannd/nfs?style=flat-square&logo=GNU&label=License" alt="LICENSE"
       />
-</p>
+    <a href="https://github.com/dionannd/nfs/pulse">
+      <img alt="Last commit" src="https://img.shields.io/github/last-commit/dionannd/nfs?style=flat-square&label=Last Commit"/>
+    </a>
 </div>
 
 ### ✨ Features
@@ -89,12 +103,5 @@ I recommend installing `lua` for autocomplete lua file, and `prettier` install g
 
 ### 🔥 Update the plugins
 
-Enter nvim, run `:PackerUpdate` or `<space> + p + u`
+Enter `nvim`, run `:PackerUpdate` or `<space> + p + u`
 
-### 💐 Thanks
-
-<div align="left" id="madewithlua">
-	
-[![Lua](https://img.shields.io/badge/Made%20with%20Lua-blue.svg?style=for-the-badge&logo=lua)](#madewithlua)
-	
-</div>
