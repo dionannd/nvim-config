@@ -82,6 +82,10 @@ return packer.startup(function(use)
   use "rose-pine/neovim"
   use "projekt0n/github-nvim-theme"
   use({
+    "dracula/vim",
+    as = "dracula"
+ })
+  use({
     "catppuccin/nvim",
     as = "catppuccin"
   })
