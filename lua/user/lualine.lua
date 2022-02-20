@@ -3,16 +3,23 @@ if not status_ok then
 	return
 end
 
+local status_gps_ok, gps = pcall(require, "nvim-gps")
+if not status_gps_ok then
+  return
+end
+
 local hide_in_width = function()
   return vim.fn.winwidth(0) > 80
 end
+
+local icons = require "user.icons"
 
 local diagnostics = {
 	"diagnostics",
 	sources = { "nvim_diagnostic" },
 	sections = { "error", "warn" },
-	symbols = { error = " ", warn = " " },
-	colored = true,
+	symbols = { error = icons.diagnostics.Error .. " ", warn = icons.diagnostics.Warning .. " " },
+  colored = true,
 	update_in_insert = false,
 	always_visible = true,
 }
@@ -21,14 +28,14 @@ local diagnostics = {
 local diff = {
 	"diff",
 	colored = true,
-	symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
+	symbols = { added = icons.git.Add .. " ", modified = icons.git.Mod .. " ", removed = icons.git.Remove .. " " },
   cond = hide_in_width
 }
 
 local mode = {
 	"mode",
 	fmt = function(str)
-		return "" .. str .. ""
+		return "-- " .. str .. " --"
 	end,
 }
 
@@ -63,22 +70,32 @@ local spaces = function()
 	return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
 end
 
+local nvim_gps = function()
+  local gps_location = gps.get_location()
+  if gps_location == "error" then
+    return ""
+  else
+    return gps.get_location()
+  end
+end
+
 lualine.setup({
   options = {
     icons_enabled = true,
-    theme = 'tokyonight',
+    theme = "auto",
     component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
-		disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
+		disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline", "toggleterm" },
 		always_divide_middle = true,
-    extensions = {'nvim-tree'}
   },
   sections = {
 		lualine_a = { mode },
 		lualine_b = { branch },
-		lualine_c = { diff, diagnostics, "filename" },
-		-- lualine_x = { "encoding", "fileformat", "filetype" },
-		lualine_x = { spaces, "encoding", 'fileformat', filetype },
+		lualine_c = {
+      diagnostics,
+      { nvim_gps, cond = hide_in_width },
+    },
+		lualine_x = { diff, spaces, "encoding", 'fileformat', filetype },
 		lualine_y = { location },
 		lualine_z = { progress },
 	},
