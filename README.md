@@ -1,7 +1,7 @@
 ## NFS (Neovim From Scratch)
 ⚡ Configuration Neovim IDE with Lua config ⚡
 
-<div align="center"><p>
+<div align="left"><p>
     <a href="https://github.com/dionannd/nfs/releases/latest">
       <img alt="Latest release" src="https://img.shields.io/github/v/release/dionannd/nfs" />
     </a>
