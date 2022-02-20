@@ -63,6 +63,9 @@ return packer.startup(function(use)
   use "norcalli/nvim-colorizer.lua"
   use "unblevable/quick-scope"
   use "RRethy/vim-illuminate"
+  use "karb94/neoscroll.nvim"
+  use "nyngwang/NeoZoom.lua"
+  use "SmiteshP/nvim-gps"
 
   -- Colorschemes
   use "folke/tokyonight.nvim"
@@ -81,6 +84,21 @@ return packer.startup(function(use)
   use "saadparwaiz1/cmp_luasnip"
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-nvim-lua"
+  use "hrsh7th/cmp-emoji"
+  use {
+    "tzachar/cmp-tabnine",
+    config = function()
+      local tabnine = require "cmp_tabnine.config"
+      tabnine:setup {
+        max_lines = 1000,
+        max_num_results = 20,
+        sort = true,
+      }
+    end,
+
+    run = "./install.sh",
+    requires = "hrsh7th/nvim-cmp",
+  }
 
   -- snippets
   use "L3MON4D3/LuaSnip"
