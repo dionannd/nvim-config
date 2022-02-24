@@ -1,7 +1,8 @@
+-- Automatically install packer
 local fn = vim.fn
 
--- Automatically install packer
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
+
 if fn.empty(fn.glob(install_path)) > 0 then
   PACKER_BOOTSTRAP = fn.system {
     "git",
@@ -40,27 +41,21 @@ packer.init {
 
 -- Manage plugins here
 return packer.startup(function(use)
-  -- Packer can manage itself
+
+  -- Package Management
   use "wbthomason/packer.nvim"
-  use "nvim-lua/popup.nvim"
+
+  -- Meta
   use "nvim-lua/plenary.nvim"
-  use "kyazdani42/nvim-web-devicons"
-  use "rcarriga/nvim-notify"
+  use "nvim-lua/popup.nvim"
+
+  -- Extra
   use "windwp/nvim-autopairs"
   use "numToStr/Comment.nvim"
   use "folke/todo-comments.nvim"
   use "antoinemadec/FixCursorHold.nvim"
-  use "kyazdani42/nvim-tree.lua"
-  use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
-  use "hoob3rt/lualine.nvim"
-  use "akinsho/toggleterm.nvim"
-  use "ahmedkhalf/project.nvim"
   use "lewis6991/impatient.nvim"
-  use "lukas-reineke/indent-blankline.nvim"
-  use "goolord/alpha-nvim"
-  use "folke/which-key.nvim"
-  use "norcalli/nvim-colorizer.lua"
   use "ThePrimeagen/harpoon"
   use "windwp/nvim-spectre"
   use "unblevable/quick-scope"
@@ -90,7 +85,20 @@ return packer.startup(function(use)
     as = "catppuccin"
   })
 
-  -- cmp plugins
+  -- UI
+  use "kyazdani42/nvim-web-devicons"
+  use "rcarriga/nvim-notify"
+  use "kyazdani42/nvim-tree.lua"
+  use "akinsho/bufferline.nvim"
+  use "lukas-reineke/indent-blankline.nvim"
+  use "goolord/alpha-nvim"
+  use "folke/which-key.nvim"
+  use "norcalli/nvim-colorizer.lua"
+  use "hoob3rt/lualine.nvim"
+  use "akinsho/toggleterm.nvim"
+  use "ahmedkhalf/project.nvim"
+
+  -- Code Completion
   use "hrsh7th/nvim-cmp"
   use "hrsh7th/cmp-buffer"
   use "hrsh7th/cmp-path"
@@ -114,20 +122,22 @@ return packer.startup(function(use)
     requires = "hrsh7th/nvim-cmp",
   }
 
-  -- snippets
-  use {
-    "L3MON4D3/LuaSnip",
-    config = function ()
-      require("luasnip/loaders/from_vscode").lazy_load()
-    end
-  }
-  use "rafamadriz/friendly-snippets"
+  -- Code Style, Formatting, Linting
+  use 'editorconfig/editorconfig-vim'
+
+  -- Git
+  use "lewis6991/gitsigns.nvim"
+  use "f-person/git-blame.nvim"
+  use "ruifm/gitlinker.nvim"
+  use "mattn/webapi-vim"
+  use "https://github.com/rhysd/conflict-marker.vim"
 
   -- LSP
   use "neovim/nvim-lspconfig"
   use "williamboman/nvim-lsp-installer"
   use "tamago324/nlsp-settings.nvim"
-  use "jose-elias-alvarez/null-ls.nvim" -- for formatting and linters
+  use "jose-elias-alvarez/null-ls.nvim"
+  use 'nvim-lua/lsp-status.nvim'
   use "filipdutescu/renamer.nvim"
   use "simrat39/symbols-outline.nvim"
   use "ray-x/lsp_signature.nvim"
@@ -136,8 +146,18 @@ return packer.startup(function(use)
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
   }
+  use 'onsails/lspkind-nvim'
   use "github/copilot.vim"
   use "RRethy/vim-illuminate"
+
+  -- snippets
+  use {
+    "L3MON4D3/LuaSnip",
+    config = function ()
+      require("luasnip/loaders/from_vscode").lazy_load()
+    end
+  }
+  use "rafamadriz/friendly-snippets"
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
@@ -156,13 +176,6 @@ return packer.startup(function(use)
   use "JoosepAlviste/nvim-ts-context-commentstring"
   use "romgrk/nvim-treesitter-context"
   use "nvim-treesitter/playground"
-
-  -- Git
-  use "lewis6991/gitsigns.nvim"
-  use "f-person/git-blame.nvim"
-  use "ruifm/gitlinker.nvim"
-  use "mattn/webapi-vim"
-  use "https://github.com/rhysd/conflict-marker.vim"
 
   -- Automatically set up your configuration after cloning packer.nvim
   if PACKER_BOOTSTRAP then
