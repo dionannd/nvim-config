@@ -44,6 +44,7 @@
 - Git (cloning repo from github)
 - [Lazygit](https://github.com/jesseduffield/lazygit) (optional for git integration)
 - [Nerd font](https://www.nerdfonts.com/) (icon ligatures support)
+- [Ripgrep](https://github.com/BurntSushi/ripgrep) is required for `live_grap` and `grep_string`
 
 ### ⚒️  Language recommend
 - Node & npm
