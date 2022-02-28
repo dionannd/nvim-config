@@ -26,6 +26,9 @@
     <a href="https://github.com/dionannd/nfs/pulse">
       <img alt="Last commit" src="https://img.shields.io/github/last-commit/dionannd/nfs?style=flat-square&label=Last Commit"/>
     </a>
+    <a href="https://www.codefactor.io/repository/github/dionannd/nfs">
+      <img src="https://www.codefactor.io/repository/github/dionannd/nfs/badge" alt="CodeFactor" />
+    </a>
 </div>
 
 ### ✨ Features
