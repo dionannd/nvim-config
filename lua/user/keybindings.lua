@@ -28,8 +28,10 @@ keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Exit insert mode
 keymap("i", "jk", "<ESC>", opts)
-keymap("i", "kj", "<ESC>", opts)
+keymap("i", "ii", "<ESC>", opts)
 keymap("i", "jj", "<ESC>", opts)
+
+keymap("n", "<C-s>", ":w<CR>", opts)
 
 -- Move text rigth and left in indent mode
 keymap("v", "<", "<gv", opts)
@@ -77,10 +79,10 @@ keymap(
   opts
 )
 keymap("n", "<C-t>", "<cmd>lua vim.lsp.buf.document_symbol()<cr>", opts)
-keymap("n", "<C-s>", "<cmd>vsplit<cr>", opts)
-keymap("n", "<C-z>", "<cmd>ZenMode<cr>", opts)
+-- keymap("n", "<C-s>", "<cmd>vsplit<cr>", opts)
+keymap("n", "<C-z>", "u", opts)
 keymap("n", "<c-n>", ":e ~/Notes/<cr>", opts)
--- keymap("n", "<C-\\>", "<cmd>vsplit<cr>", opts)
+keymap("n", "<C-\\>", "<cmd>vsplit<cr>", opts)
 -- vim.cmd[[nnoremap c* /\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgn]]
 -- vim.cmd[[nnoremap c# ?\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgN]]
 -- keymap("n", "c*", [[/\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgn]], opts)
