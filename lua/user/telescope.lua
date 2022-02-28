@@ -6,11 +6,11 @@ end
 local actions = require('telescope.actions')
 telescope.load_extension "media_files"
 
-local icons = require("user.icons")
+-- local icons = require("user.icons")
 
 telescope.setup {
   defaults = {
-    prompt_prefix = icons.ui.Search .. " ",
+    prompt_prefix = "🔍 ",
     selection_caret = " ",
     entry_prefix = "  ",
     initial_mode = "insert",

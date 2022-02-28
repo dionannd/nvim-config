@@ -1,9 +1,9 @@
 local options = {
-  completeopt = { "menuone", "noselect"},
+  completeopt = { "menu" ,"menuone", "noselect"},
   pumheight = 10,
   fileencoding = 'utf-8',
   cmdheight = 2,
-  -- termguicolors = true,
+  termguicolors = true,
   conceallevel = 0,
   showtabline = 2,
   smartcase = true,
