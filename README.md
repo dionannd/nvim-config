@@ -10,24 +10,24 @@
   
 <div align="center">
 
-  <a href="https://github.com/dionannd/nfs/releases/latest"
-    ><img alt="Latest Release" src="https://img.shields.io/github/v/release/dionannd/nfs?style=flat-square&label=Release"
+  <a href="https://github.com/dionannd/neovim-config/releases/latest"
+    ><img alt="Latest Release" src="https://img.shields.io/github/v/release/dionannd/neovim-config?style=flat-square&label=Release"
     />
   </a>
 [![Neovim Minimum Version](https://img.shields.io/badge/Neovim-0.6+-blueviolet.svg?style=flat-square&logo=Neovim&logoColor=white)](https://github.com/neovim/neovim)
-  <a href="https://github.com/dionannd/nfs"
+  <a href="https://github.com/dionannd/neovim-config"
         ><img
-            src="https://img.shields.io/github/repo-size/dionannd/nfs?style=flat-square&label=Repo"
+            src="https://img.shields.io/github/repo-size/dionannd/neovim-config?style=flat-square&label=Repo"
             alt="GitHub repository size"
     /></a>
-    <a href="https://github.com/dionannd/nfs/blob/main/LICENSE">
-        <img src="https://img.shields.io/github/license/dionannd/nfs?style=flat-square&logo=GNU&label=License" alt="LICENSE"
+    <a href="https://github.com/dionannd/neovim-config/blob/main/LICENSE">
+        <img src="https://img.shields.io/github/license/dionannd/neovim-config?style=flat-square&logo=GNU&label=License" alt="LICENSE"
       />
-    <a href="https://github.com/dionannd/nfs/pulse">
-      <img alt="Last commit" src="https://img.shields.io/github/last-commit/dionannd/nfs?style=flat-square&label=Last Commit"/>
+    <a href="https://github.com/dionannd/neovim-config/pulse">
+      <img alt="Last commit" src="https://img.shields.io/github/last-commit/dionannd/neovim-config?style=flat-square&label=Last Commit"/>
     </a>
-    <a href="https://www.codefactor.io/repository/github/dionannd/nfs">
-      <img src="https://www.codefactor.io/repository/github/dionannd/nfs/badge" alt="CodeFactor" />
+    <a href="https://www.codefactor.io/repository/github/dionannd/neovim-config">
+      <img src="https://www.codefactor.io/repository/github/dionannd/neovim-config/badge" alt="CodeFactor" />
     </a>
 </div>
 
@@ -70,7 +70,7 @@ Make sure to remove or move your current `nvim` directory,
 if done run in termninal :
 
 ```
-git clone https://github.com/dionannd/nfs.git ~/.config/nvim
+git clone https://github.com/dionannd/neovim-config.git ~/.config/nvim
 nvim +PackerSync
 ```
 
