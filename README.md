@@ -108,4 +108,3 @@ I recommend installing `lua` for autocomplete lua file, and `prettier` install g
 ### 🔥 Update the plugins
 
 Enter `nvim`, run `:PackerUpdate` or `<space> + p + u`
-
