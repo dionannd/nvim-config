@@ -43,7 +43,7 @@
 - Awesome user configuration system
 
 ### ⚙️ Requirements
-- [Neovim](https://neovim.io/) >= v0.6.1 or [Nightly](https://github.com/neovim/neovim/releases/tag/nightly).
+- [Neovim](https://neovim.io/) >= v0.7 or [Nightly](https://github.com/neovim/neovim/releases/tag/nightly)
 - Git (cloning repo from github)
 - [Lazygit](https://github.com/jesseduffield/lazygit) (optional for git integration)
 - [Nerd font](https://www.nerdfonts.com/) (icon ligatures support)
