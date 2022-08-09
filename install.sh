@@ -16,14 +16,14 @@ warngit() {
 }
 
 changedirname() {
-  mv $HOME/.config/nvim $HOME/.config/nvim_old
+  mv $HOME/.config/nvim $HOME/.config/nvim_backup
   echo "Your existing nvim config has been moving to nvim_backup"
   clonerepo
 }
 
 clonerepo() {
   echo "Cloning repo to your nvim directory..."
-  git clone https://github.com/dionannd/nfs ~/.config/nvim
+  git clone https://github.com/dionannd/nvim-config.git ~/.config/nvim
   nvim +PackerSync
 }
 
