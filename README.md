@@ -1,4 +1,4 @@
-<h2 align="center"> NFS (Neovim From Scratch) </h2>
+<h2 align="center"> Neovim Setup </h2>
 
 <h6 align="center"> ⚡ Configuration Neovim IDE with Lua config ⚡ </h6>
 
