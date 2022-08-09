@@ -1,4 +1,4 @@
-<h2 align="center"> NFS (Neovim From Scratch) </h2>
+<h2 align="center"> Neovim From Scratch </h2>
 
 <h6 align="center"> ⚡ Configuration Neovim IDE with Lua config ⚡ </h6>
 
@@ -11,23 +11,23 @@
 <div align="center">
 
   <a href="https://github.com/dionannd/neovim-config/releases/latest"
-    ><img alt="Latest Release" src="https://img.shields.io/github/v/release/dionannd/neovim-config?style=flat-square&label=Release"
+    ><img alt="Latest Release" src="https://img.shields.io/github/v/release/dionannd/nvim-config?style=flat-square&label=Release"
     />
   </a>
-[![Neovim Minimum Version](https://img.shields.io/badge/Neovim-0.6+-blueviolet.svg?style=flat-square&logo=Neovim&logoColor=white)](https://github.com/neovim/neovim)
-  <a href="https://github.com/dionannd/neovim-config"
+[![Neovim Minimum Version](https://img.shields.io/badge/Neovim-0.7+-blueviolet.svg?style=flat-square&logo=Neovim&logoColor=white)](https://github.com/neovim/neovim)
+  <a href="https://github.com/dionannd/nvim-config"
         ><img
-            src="https://img.shields.io/github/repo-size/dionannd/neovim-config?style=flat-square&label=Repo"
+            src="https://img.shields.io/github/repo-size/dionannd/nvim-config?style=flat-square&label=Repo"
             alt="GitHub repository size"
     /></a>
-    <a href="https://github.com/dionannd/neovim-config/blob/main/LICENSE">
-        <img src="https://img.shields.io/github/license/dionannd/neovim-config?style=flat-square&logo=GNU&label=License" alt="LICENSE"
+    <a href="https://github.com/dionannd/nvim-config/blob/main/LICENSE">
+        <img src="https://img.shields.io/github/license/dionannd/nvim-config?style=flat-square&logo=GNU&label=License" alt="LICENSE"
       />
-    <a href="https://github.com/dionannd/neovim-config/pulse">
-      <img alt="Last commit" src="https://img.shields.io/github/last-commit/dionannd/neovim-config?style=flat-square&label=Last Commit"/>
+    <a href="https://github.com/dionannd/nvim-config/pulse">
+      <img alt="Last commit" src="https://img.shields.io/github/last-commit/dionannd/nvim-config?style=flat-square&label=Last Commit"/>
     </a>
-    <a href="https://www.codefactor.io/repository/github/dionannd/neovim-config">
-      <img src="https://www.codefactor.io/repository/github/dionannd/neovim-config/badge" alt="CodeFactor" />
+    <a href="https://www.codefactor.io/repository/github/dionannd/nvim-config">
+      <img src="https://www.codefactor.io/repository/github/dionannd/nvim-config/badge" alt="CodeFactor" />
     </a>
 </div>
 
@@ -38,7 +38,6 @@
 - Beautiful syntax highlighting with treesitter
 - Language support and Code Autocompletion
 - Autoformatting
-- Terminal integration
 - Efficient file navigation
 - Awesome user configuration system
 
@@ -51,12 +50,9 @@
 
 ### ⚒️  Language recommend
 - Node & npm
-- Python
-- Go >= 1.17
-- Ruby (optional)
-- Composer (optional)
-- Julia (optional)
-- Powershell (optional)
+- Python3
+- Typescript
+- Sumneko Lua
 
 ### 🚀 Try this config
 
@@ -70,7 +66,7 @@ Make sure to remove or move your current `nvim` directory,
 if done run in termninal :
 
 ```
-git clone https://github.com/dionannd/neovim-config.git ~/.config/nvim
+git clone https://github.com/dionannd/nvim-config.git ~/.config/nvim
 nvim +PackerSync
 ```
 
