@@ -1,19 +1,9 @@
-<h2 align="center"> Neovim From Scratch </h2>
+<h2 align="center"> Neovim Setup </h2>
 
-<h6 align="center"> ⚡ Configuration Neovim IDE with Lua config ⚡ </h6>
-
-<div align="center" id="madewithlua">
-	
-[![Lua](https://img.shields.io/badge/Made%20with%20Lua-blue.svg?style=for-the-badge&logo=lua)](#madewithlua)
-	
-</div>
+<h6 align="center"> Configuration Neovim IDE with Lua config </h6>
   
 <div align="center">
 
-  <a href="https://github.com/dionannd/neovim-config/releases/latest"
-    ><img alt="Latest Release" src="https://img.shields.io/github/v/release/dionannd/nvim-config?style=flat-square&label=Release"
-    />
-  </a>
 [![Neovim Minimum Version](https://img.shields.io/badge/Neovim-0.7+-blueviolet.svg?style=flat-square&logo=Neovim&logoColor=white)](https://github.com/neovim/neovim)
   <a href="https://github.com/dionannd/nvim-config"
         ><img
