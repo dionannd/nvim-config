@@ -27,6 +27,8 @@ packer.startup(function(use)
   }
   use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server
   use 'MunifTanjim/prettier.nvim' -- Prettier plugin for Neovim's built-in LSP client
+  use 'williamboman/mason.nvim'
+  use 'williamboman/mason-lspconfig.nvim'
   
   use 'windwp/nvim-autopairs'
   use 'windwp/nvim-ts-autotag'
@@ -37,6 +39,12 @@ packer.startup(function(use)
 
   use 'akinsho/nvim-bufferline.lua'
   use 'norcalli/nvim-colorizer.lua'
+  use 'folke/zen-mode.nvim' 
+  use({
+    'iamcco/markdown-preview.nvim',
+    run = function() vim.fn['mkdp#util#install']() end,
+  })
 
   use 'lewis6991/gitsigns.nvim'
+  use 'dinhhuy258/git.nvim'
 end)

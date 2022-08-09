@@ -3,6 +3,12 @@ local keymap = vim.keymap
 -- Mode
 keymap.set('i', 'jj', '<ESC>', { noremap = true, silent = true })
 
+-- Move text
+keymap.set('v', '<', '<gv')
+keymap.set('v', '>', '>gv')
+keymap.set('v', 'J', ":move '>+1<CR>gv-gv")
+keymap.set('v', 'K', ":move '<-2<CR>gv-gv")
+
 -- Do not yank
 keymap.set('n', 'x', '"_x')
 
