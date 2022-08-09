@@ -25,6 +25,9 @@ packer.startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
+  use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server
+  use 'MunifTanjim/prettier.nvim' -- Prettier plugin for Neovim's built-in LSP client
+  
   use 'windwp/nvim-autopairs'
   use 'windwp/nvim-ts-autotag'
 
@@ -34,4 +37,6 @@ packer.startup(function(use)
 
   use 'akinsho/nvim-bufferline.lua'
   use 'norcalli/nvim-colorizer.lua'
+
+  use 'lewis6991/gitsigns.nvim'
 end)
