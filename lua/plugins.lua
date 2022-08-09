@@ -1,10 +1,32 @@
+local fn = vim.fn
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+if fn.empty(fn.glob(install_path)) > 0 then
+  packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+  print('Installing packer close and reopen Neovim...')
+  vim.cmd [[packadd packer.nvim]]
+end
+
+-- Autocommand reload modif plugins
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  augroup end
+]])
+
 local status, packer = pcall(require, 'packer')
 if (not status) then
   print('packer not installed')
   return
 end
 
-vim.cmd [[packadd packer.nvim]]
+packer.init {
+  display = {
+    open_fn = function()
+      return require('packer.util').float { border = 'rounded' }
+    end,
+  }
+}
 
 packer.startup(function(use)
   use 'wbthomason/packer.nvim'
@@ -12,6 +34,7 @@ packer.startup(function(use)
     'svrana/neosolarized.nvim',
     requires = { 'tjdevries/colorbuddy.nvim' }
   }
+  use 'nvim-lua/popup.nvim' -- Common utilities
   use 'nvim-lua/plenary.nvim' -- Common utilities
   use 'kyazdani42/nvim-web-devicons' -- File icons
   use 'hoob3rt/lualine.nvim' -- Statusline
@@ -39,6 +62,7 @@ packer.startup(function(use)
 
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-telescope/telescope-file-browser.nvim'
+  use 'nvim-telescope/telescope-media-files.nvim' -- Only support on linux
 
   use 'folke/zen-mode.nvim' 
   use({
@@ -51,4 +75,10 @@ packer.startup(function(use)
   use 'dinhhuy258/git.nvim'
 
   use 'folke/tokyonight.nvim'
+
+  -- Automatically set up your configuration after cloning packer.nvim
+  -- Put this at the end after all plugins
+  if packer_bootstrap then
+    require('packer').sync()
+  end
 end)

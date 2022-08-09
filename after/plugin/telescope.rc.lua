@@ -19,6 +19,10 @@ telescope.setup {
     },
   },
   extensions = {
+    media_files = {
+      filetypes = { 'png', 'webp', 'jpg', 'jpeg' },
+      find_cmd = 'rg' -- find command (defaults to `fd`)
+    },
     file_browser = {
       theme = 'dropdown',
       -- disables netrw and use telescope-file-browser in its place
@@ -44,6 +48,7 @@ telescope.setup {
 }
 
 telescope.load_extension('file_browser')
+telescope.load_extension('media_files')
 
 vim.keymap.set('n', ';f',
   function()
@@ -78,5 +83,8 @@ vim.keymap.set('n', 'sf', function()
     initial_mode = 'normal',
     layout_config = { height = 40 }
   })
+end)
+vim.keymap.set('n', ';m', function()
+  telescope.extensions.media_files.media_files()
 end)
 
