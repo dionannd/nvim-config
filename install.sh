@@ -23,7 +23,7 @@ changedirname() {
 
 clonerepo() {
   echo "Cloning repo to your nvim directory..."
-  git clone https://github.com/dionannd/neovim-config.git ~/.config/nvim
+  git clone https://github.com/dionannd/nvim-config.git ~/.config/nvim
   nvim +PackerSync
 }
 
