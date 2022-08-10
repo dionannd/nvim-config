@@ -1,4 +1,4 @@
-<h2 align="center"> Neovim Setup </h2>
+<h1 align="center"> Neovim Setup </h1>
 
 <h6 align="center"> Configuration Neovim IDE with Lua config </h6>
   
@@ -21,7 +21,7 @@
     </a>
 </div>
 
-### ✨ Features
+## ✨ Features
 - Easy use and configuration
 - Minimalias and clean
 - Extensible package management system
@@ -31,20 +31,20 @@
 - Efficient file navigation
 - Awesome user configuration system
 
-### ⚙️ Requirements
+## ⚙️ Requirements
 - [Neovim](https://neovim.io/) >= v0.7 or [Nightly](https://github.com/neovim/neovim/releases/tag/nightly)
 - Git (cloning repo from github)
 - [Lazygit](https://github.com/jesseduffield/lazygit) (optional for git integration)
 - [Nerd font](https://www.nerdfonts.com/) (icon ligatures support)
 - [Ripgrep](https://github.com/BurntSushi/ripgrep) is required for `live_grap` and `grep_string`
 
-### ⚒️  Language recommend
+## ⚒️  Language recommend
 - Node & npm
 - Python3
 - Typescript
 - Sumneko Lua
 
-### 🚀 Try this config
+## 🚀 Try this config
 
 You can install automatically with `cloning repo` and then,run:
 ```
@@ -60,7 +60,7 @@ git clone https://github.com/dionannd/nvim-config.git ~/.config/nvim
 nvim +PackerSync
 ```
 
-### 🎣 Get healthy
+## 🎣 Get healthy
 
 Open `nvim` and run
 ```
@@ -82,7 +82,7 @@ Next we need to install python support (node is optional)
   npm i -g neovim
   ```
 
-### 🗨️ Install Language support
+## 🗨️ Install Language support
 
 - Enter `:LspInstall` followed by `<TAB>` to see your options for LSP
 
@@ -91,6 +91,6 @@ Next we need to install python support (node is optional)
 **NOTE:** <br />
 I recommend installing `lua` for autocomplete lua file, and `prettier` install global with `npm i -g prettier`
 
-### 🔥 Update the plugins
+## 🔥 Update the plugins
 
-Enter `nvim`, run `:PackerUpdate` or `<space> + p + u`
+Enter `nvim`, run `:PackerUpdate`
