@@ -1,6 +1,6 @@
 <h1 align="center"> Neovim Setup </h1>
 
-<h6 align="center"> Configuration Neovim IDE with Lua config </h6>
+<h6 align="center"> Configuration Neovim IDE with Lua config. </h6>
   
 <div align="center">
 
