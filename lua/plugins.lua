@@ -38,7 +38,7 @@ packer.startup(function(use)
   use 'nvim-lua/plenary.nvim' -- Common utilities
   use 'kyazdani42/nvim-web-devicons' -- File icons
   use 'hoob3rt/lualine.nvim' -- Statusline
-  use 'akinsho/nvim-bufferline.lua'
+  use {'akinsho/bufferline.nvim', tag = 'v2.*', requires = 'kyazdani42/nvim-web-devicons'}
 
   use 'neovim/nvim-lspconfig' -- LSP
   use 'glepnir/lspsaga.nvim'
