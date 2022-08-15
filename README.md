@@ -46,8 +46,10 @@
 
 ## 🚀 Try this config
 
-You can install automatically with `cloning repo` and then,run:
-```
+You can install automatically with `command` and then,run:
+
+```bash
+wget https://raw.githubusercontent.com/dionannd/nvim-config/main/install.sh
 ./install.sh
 ```
 or you can install manual, follow the step in below:
@@ -55,7 +57,7 @@ or you can install manual, follow the step in below:
 Make sure to remove or move your current `nvim` directory, 
 if done run in termninal :
 
-```
+```bash
 git clone https://github.com/dionannd/nvim-config.git ~/.config/nvim
 nvim +PackerSync
 ```
