@@ -1,34 +1,34 @@
 #!/bin/bash
 
-warnnvim() {
+warn_nvim() {
   echo "Neovim not found, please install it"
   exit
 }
 
-warnnode() {
+warn_node() {
   echo "Node not found, please install it"
   exit
 }
 
-warngit() {
+warn_git() {
   echo "Git not found, please install it"
   exit
 }
 
-changedirname() {
+change_dirname() {
   mv $HOME/.config/nvim $HOME/.config/nvim_backup
   echo "Your existing nvim config has been moving to nvim_backup"
-  clonerepo
+  clone_repo
 }
 
-clonerepo() {
+clone_repo() {
   echo "Cloning repo to your nvim directory..."
   git clone https://github.com/dionannd/nvim-config.git ~/.config/nvim
-  nvim +PackerSync
+  nvim 
 }
 
-which nvim >/dev/null && echo "Neovim is installed" || warnnvim
-which node >/dev/null && echo "Node is installed" || warnnode
-which git >/dev/null && echo "Git is installed" || warngit
+which nvim >/dev/null && echo "Neovim is installed" || warn_nvim
+which node >/dev/null && echo "Node is installed" || warn_node
+which git >/dev/null && echo "Git is installed" || warn_git
 
-[ -d "$HOME/.config/nvim" ] && changedirname || clonerepo
+[ -d "$HOME/.config/nvim" ] && change_dirname || clone_repo
