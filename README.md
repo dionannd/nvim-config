@@ -1,6 +1,3 @@
-# Neovim Setup
-Configuration Neovim IDE with Lua config.
-
 [![Neovim Minimum Version](https://img.shields.io/badge/Neovim-0.7+-blueviolet.svg?style=flat-square&logo=Neovim&logoColor=white)](https://github.com/neovim/neovim)
 <a href="https://github.com/dionannd/nvim-config">
   <img src="https://img.shields.io/github/repo-size/dionannd/nvim-config?style=flat-square&label=Repo" alt="GitHub repository size"
@@ -14,6 +11,9 @@ Configuration Neovim IDE with Lua config.
 <a href="https://github.com/dionannd/nvim-config/blob/main/LICENSE">
     <img src="https://img.shields.io/github/license/dionannd/nvim-config?style=flat-square&logo=GNU&label=License" alt="LICENSE"
 /></a>
+
+# Neovim Setup
+Configuration Neovim IDE with Lua config.
 
 ## Features
 - Easy use and configuration
