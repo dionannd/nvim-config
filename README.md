@@ -52,12 +52,12 @@ Configuration Neovim IDE with Lua config.
   wget https://raw.githubusercontent.com/dionannd/nvim-config/main/setup.sh && chmod +x setup.sh && ./setup.sh
   ```
 - Or you can install manual, follow the step in below:
-  Make sure to remove or move your current `nvim` directory, 
-  run in terminal :
-  ```bash
-  git clone https://github.com/dionannd/nvim-config.git ~/.config/nvim
-  nvim
-  ```
+  - Make sure to remove or move your current `nvim` directory, 
+  - run in terminal :
+    ```bash
+    git clone https://github.com/dionannd/nvim-config.git ~/.config/nvim
+    nvim
+    ```
 
 ## Get healthy
 
