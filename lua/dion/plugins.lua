@@ -21,6 +21,7 @@ if (not status) then return end
 
 packer.startup(function(use)
   use 'wbthomason/packer.nvim'
+  use 'lewis6991/impatient.nvim'
   use 'nvim-lua/popup.nvim' -- Common utilities
   use 'nvim-lua/plenary.nvim' -- Common utilities
   use 'kyazdani42/nvim-web-devicons' -- File icons
@@ -39,7 +40,10 @@ packer.startup(function(use)
     run = ':TSUpdate'
   }
   use 'neovim/nvim-lspconfig' -- LSP
-  use 'glepnir/lspsaga.nvim'
+  use {
+    'glepnir/lspsaga.nvim',
+    branch = 'main'
+  }
   use 'onsails/lspkind-nvim' -- vscode-like pictograms
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'

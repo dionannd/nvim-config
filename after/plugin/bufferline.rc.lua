@@ -3,16 +3,21 @@ if (not status) then return end
 
 bufferline.setup {
   options = {
-    mode = "tabs",
+    mode = 'tabs',
     numbers = 'none',
-    separator_style = 'slant',
-    always_show_bufferline = false,
+    separator_style = 'thin',
+    always_show_bufferline = true,
     show_buffer_close_icons = false,
     indicator = {
-      icon = '',
+      icon = '▎',
       style = 'icon'
     },
-    modified_icon = "●",
+    max_name_length = 14,
+    max_prefix_length = 13,
+    tab_size = 20,
+    modified_icon = '',
+    close_icon = '',
+    -- buffer_close_icon = '',
   },
   highlights = {
     fill = {
