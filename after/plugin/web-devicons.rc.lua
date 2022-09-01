@@ -1,12 +1,17 @@
 local status, icons = pcall(require, 'nvim-web-devicons')
 if (not status) then return end
 
-icons.setup {
-  -- your personal icons can go here (to override)
-  -- DevIcon will be appended to `name`
-  override = {
-  },
-  -- globally enable default icons (default to false)
-  -- will get override by `get_icons` option
-  default = true
-}
+icons.setup(nvim.user_plugin_opts('web-devicons', {
+  deb = { icon = "", name = "Deb" },
+  lock = { icon = "", name = "Lock" },
+  mp3 = { icon = "", name = "Mp3" },
+  mp4 = { icon = "", name = "Mp4" },
+  out = { icon = "", name = "Out" },
+  ["robots.txt"] = { icon = "ﮧ", name = "Robots" },
+  ttf = { icon = "", name = "TrueTypeFont" },
+  rpm = { icon = "", name = "Rpm" },
+  woff = { icon = "", name = "WebOpenFontFormat" },
+  woff2 = { icon = "", name = "WebOpenFontFormat2" },
+  xz = { icon = "", name = "Xz" },
+  zip = { icon = "", name = "Zip" },
+}))

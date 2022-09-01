@@ -8,6 +8,8 @@ for _, source in ipairs {
   'dion.highlights',
   'dion.maps',
   'dion.plugins',
+  'dion.utils',
+  'dion.status',
 } do
   local status_ok, fault = pcall(require, source)
   if not status_ok then

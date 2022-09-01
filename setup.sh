@@ -70,4 +70,4 @@ main() {
 }
 
 main
-nvim
+nvim +PackerSync

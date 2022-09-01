@@ -1,3 +1,4 @@
+require('nvim-lsp-installer').setup {}
 local status, nvim_lsp = pcall(require, 'lspconfig')
 if (not status) then return end
 
@@ -74,16 +75,19 @@ nvim_lsp.sumneko_lua.setup {
   on_attach = on_attach,
   settings = {
     Lua = {
-      diagnotics = {
-        -- Get the language server to recognize the `vim` global
-        globals = { 'vim' },
+      runtime = {
+        version = 'LuaJIT',
       },
-
+      diagnostics = {
+        globals = {'vim'}
+      },
       workspace = {
-        -- Make the server aware of Neovim runtime files
         library = vim.api.nvim_get_runtime_file("", true),
         checkThirdParty = false
       },
+      telemetry = {
+        enable = false
+      }
     },
   },
 }

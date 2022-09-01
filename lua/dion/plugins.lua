@@ -29,17 +29,18 @@ packer.startup(function(use)
     'svrana/neosolarized.nvim',
     requires = { 'tjdevries/colorbuddy.nvim' }
   }
-  use 'hoob3rt/lualine.nvim' -- Statusline
   use {
     'akinsho/bufferline.nvim',
     tag = 'v2.*'
   }
+  use 'feline-nvim/feline.nvim'
 
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
   use 'neovim/nvim-lspconfig' -- LSP
+  use 'williamboman/nvim-lsp-installer'
   use {
     'glepnir/lspsaga.nvim',
     branch = 'main'
