@@ -56,7 +56,7 @@ Configuration Neovim IDE with Lua config.
   - run in terminal :
     ```bash
     git clone https://github.com/dionannd/nvim-config.git ~/.config/nvim
-    nvim
+    nvim + PackerSync
     ```
 
 ## Get healthy
