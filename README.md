@@ -26,7 +26,7 @@ Configuration Neovim IDE with Lua config.
 - Awesome user configuration system
 
 ## Requirements
-- [Neovim](https://neovim.io/) >= v0.7 or [Nightly](https://github.com/neovim/neovim/releases/tag/nightly).
+- [Neovim](https://neovim.io/) >= v0.7.2 or [Nightly](https://github.com/neovim/neovim/releases/tag/nightly).
 - [Git](https://github.com/git/git) (cloning repo from github).
 - [Lazygit](https://github.com/jesseduffield/lazygit) (optional for git integration).
 - [Nerd font](https://www.nerdfonts.com/) (icon ligatures support).
