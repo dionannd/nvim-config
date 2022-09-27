@@ -26,11 +26,11 @@ Configuration Neovim IDE with Lua config.
 - Awesome user configuration system
 
 ## Requirements
-- [Neovim](https://neovim.io/) >= v0.7 or [Nightly](https://github.com/neovim/neovim/releases/tag/nightly)
-- [Git](https://github.com/git/git) (cloning repo from github)
-- [Lazygit](https://github.com/jesseduffield/lazygit) (optional for git integration)
-- [Nerd font](https://www.nerdfonts.com/) (icon ligatures support)
-- [Ripgrep](https://github.com/BurntSushi/ripgrep) is required for `live_grap` and `grep_string`
+- [Neovim](https://neovim.io/) >= v0.7.2 or [Nightly](https://github.com/neovim/neovim/releases/tag/nightly).
+- [Git](https://github.com/git/git) (cloning repo from github).
+- [Lazygit](https://github.com/jesseduffield/lazygit) (optional for git integration).
+- [Nerd font](https://www.nerdfonts.com/) (icon ligatures support).
+- [Ripgrep](https://github.com/BurntSushi/ripgrep) is required for `live_grap` and `grep_string`.
 
 ## Dependencies
 - Node & npm
@@ -56,7 +56,7 @@ Configuration Neovim IDE with Lua config.
   - run in terminal :
     ```bash
     git clone https://github.com/dionannd/nvim-config.git ~/.config/nvim
-    nvim
+    nvim + PackerSync
     ```
 
 ## Get healthy
