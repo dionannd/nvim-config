@@ -13,7 +13,7 @@
 /></a>
 
 # Neovim Setup
-Configuration Neovim IDE with Lua config.
+Configuration Neovim IDE with Lua config
 
 ## Features
 - Easy use and configuration
