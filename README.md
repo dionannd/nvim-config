@@ -117,4 +117,4 @@ I recommend installing `lua` for autocomplete lua file
 
 ## Update the plugins
 
-Enter `nvim`, run `:PackerUpdate`
+Enter `nvim`, run `:PackerUpdate`.
