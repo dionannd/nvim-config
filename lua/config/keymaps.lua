@@ -72,3 +72,7 @@ end)
 keymap.set("n", "<leader>i", function()
     require("dion.lsp").toggleInlayHints()
 end)
+
+vim.api.nvim_create_user_command("ToggleAutoformat", function()
+	require("dion.lsp").toggleAutoformat()
+end, {})
