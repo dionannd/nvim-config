@@ -29,92 +29,44 @@ Configuration Neovim IDE with Lua config
 
 ## Requirements
 
-- [Neovim](https://neovim.io/) >= v0.7.2 or [Nightly](https://github.com/neovim/neovim/releases/tag/nightly).
-- [Git](https://github.com/git/git) (cloning repo from github).
-- [Lazygit](https://github.com/jesseduffield/lazygit) (optional for git integration).
-- [Nerd font](https://www.nerdfonts.com/) (icon ligatures support).
-- [Ripgrep](https://github.com/BurntSushi/ripgrep) is required for `live_grap` and `grep_string`.
-
-## Dependencies
-
-- Node & npm
-- Python3
-- Typescript
-
-  ```bash
-  npm i -g typescript typescript-language-server
-  ```
-
-- Prettier
-
-  ```bash
-  brew install -g prettierd
-  ```
-
-- tree-sitter
-
-  ```bash
-  brew install tree-sitter
-  ```
-
-- eslint
-
-  ```bash
-  npm i -g eslint_d
-  ```
+- [Neovim](https://neovim.io/) >= **0.9.0** or [Nightly](https://github.com/neovim/neovim/releases/tag/nightly) (needs to be built with **LuaJIT**)
+- [Git](https://github.com/git/git) >= **2.19.0** (for partial clones support)
+- [LazyVim](https://www.lazyvim.org)
+- a [Nerd Font](https://www.nerdfonts.com) (v3.0 or greater) _**(optional, but needed to display some icons)**_
+- [Lazygit](https://github.com/jesseduffield/lazygit) _**(optional)**_
+- a **C** compiler for `nvim-treesitter`. See [here](https://github.com/nvim-treesitter/nvim-treesitter#requirements)
+- for [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) _**(Optional)**_
+  - live grep: [ripgrep](https://github.com/BurntSushi/ripgrep)
+  - find files: [fd](https://github.com/sharkdp/fd)
+- a terminal that support true color and _undercurl:_
+  - [alacritty](https://github.com/alacritty/alacritty) _**(Linux, macOS & Windows)**_
+  - [iterm2](https://iterm2.com) _**(macOS)**_
 
 ## Quickstart
 
-- You can install automatically with `one command`,run:
+You can install automatically with `one command`,run:
 
-  ```bash
-  wget https://raw.githubusercontent.com/dionannd/nvim-config/main/setup.sh && chmod +x setup.sh && ./setup.sh
-  ```
-
-- Or you can install manual, follow the step in below:
-
-  - Make sure to remove or move your current `nvim` directory,
-  - run in terminal :
-
-    ```bash
-    git clone https://github.com/dionannd/nvim-config.git ~/.config/nvim
-    nvim + PackerSync
-    ```
-
-## Get healthy
-
-Open `nvim` and run
-
-```
-:checkhealth
+```bash
+wget https://raw.githubusercontent.com/dionannd/nvim-config/main/install.sh && chmod +x install.sh && ./install.sh
 ```
 
-You'll probably notice you don't have support for copy/paste also that python and node haven't been setup <br />
-So let's fix that <br />
+Or you can install manual, follow the step in below:
 
-Next we need to install python support (node is optional)
-
-- Neovim python support
+- Make sure to remove or move your current `nvim` directory:
 
   ```bash
-  pip install pynvim
+  mv ~/.config/nvim ~/.config/nvim-backup
   ```
 
-- Neovim node support
+- run in terminal:
 
   ```bash
-  npm i -g neovim
+  git clone https://github.com/dionannd/nvim-config.git ~/.config/nvim
+  nvim
   ```
 
-## Install Language support
+- Start Neovim:
 
-- Enter `:LspInstall` followed by `<TAB>` to see your options for LSP
-
-- Enter `:MasonInstall` followed by `<TAB>` to see your options for syntax highlighting
-
-**NOTE:** <br />
-I recommend installing `lua` for autocomplete lua file
-
-## Update the plugins
-
-Enter `nvim`, run `:PackerUpdate`.
+  ```bash
+  nvim
+  ```
